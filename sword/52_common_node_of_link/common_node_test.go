@@ -8,6 +8,8 @@ import (
 
 func Test_OK(t *testing.T) {
 	ast := assert.New(t)
+
 	ast.Equal("1", "1", "11")
 
+	//getIntersectionNode()
 }
