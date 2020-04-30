@@ -1,4 +1,4 @@
-package _2_common_node_of_link
+package _52_common_node_of_link
 
 import "github.com/mutexlock/algorithms/common"
 
