@@ -2,30 +2,7 @@ package backtrace
 
 import (
 	"bytes"
-	"fmt"
 )
-
-func printQueenContent(m [][]string) {
-	for _, row := range m {
-		for _, v := range row {
-			fmt.Print(v)
-		}
-		fmt.Print("\n")
-	}
-}
-func printQueen(n int) {
-	queen := make([][]string, n)
-	for i := 0; i < n; i++ {
-		queen[i] = make([]string, n)
-		queen[i][0] = "Q"
-		for j := 1; j < n; j++ {
-			queen[i][j] = "."
-		}
-	}
-
-	printQueenContent(queen)
-
-}
 
 func solveNQueens(n int) [][]string {
 	var res [][]string
