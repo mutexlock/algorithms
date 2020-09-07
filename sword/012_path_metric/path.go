@@ -66,3 +66,45 @@ func search(board [][]byte, i, j, k int, word string) bool {
 
 	return false
 }
+
+
+
+func getSum(m, n int) int {
+	sum := 0
+	for m != 0 {
+		sum += m % 10
+		m = m / 10
+	}
+	for n != 0 {
+		sum += n % 10
+		n = n / 10
+	}
+	return sum
+}
+
+func dfs(x, y, m, n, k int, vis [][]bool) int {
+	if getSum(x, y) > k {
+		return 0
+	}
+	if x >= m || y >= n || x < 0 || y < 0 {
+		return 0
+	}
+	if vis[x][y] {
+		return 0
+	}
+	vis[x][y] = true
+	sum := 1
+	sum += dfs(x - 1, y, m, n, k, vis)
+	sum += dfs(x + 1, y, m, n, k, vis)
+	sum += dfs(x, y - 1, m, n, k, vis)
+	sum += dfs(x, y + 1, m, n, k, vis)
+	return sum
+}
+
+func movingCount(m int, n int, k int) int {
+	vis := make([][]bool, m )
+	for i := 0; i < len(vis); i++ {
+		vis[i] = make([]bool, n)
+	}
+	return dfs(0, 0, m, n, k, vis)
+}
